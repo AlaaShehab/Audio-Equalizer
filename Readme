@@ -1,0 +1,6 @@
+There are 5 TODOs
+1) Saving the output of each filter band
+2) continue GUI labels for bands
+3) convert db to gain
+4) make sure plotting of bands is correct
+5) make composite output
