@@ -29,8 +29,16 @@ global rate;
 global compositeY;
 %array of gain for all band to be initialized --set in sliders
 global bandGain;
-%array of band data --set in filterig
-global bandY
+% array ofband data --set in filterig
+global band1;
+global band2;
+global band3;
+global band4;
+global band5;
+global band6;
+global band7;
+global band8;
+global band9;
 %original sampled data
 global y;
 %Original sample rate
@@ -45,7 +53,7 @@ guidata(hObject, handles);
 % UIWAIT makes GUI wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 compositeY = y;
-bandY = ones(1, 9);
+%bandY = ones(1, 9);
 bandGain = ones(1, 9);
 % --- Outputs from this function are returned to the command line.
 function varargout = GUI_OutputFcn(hObject, eventdata, handles) 
@@ -348,6 +356,8 @@ if value == 2
 end
 if value==3
     filterType = "IIR";
+
+    [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =IIRFilter(y,fs,1);
 end
 
 %TODO call filter function a switch case to filter input

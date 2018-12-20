@@ -1,4 +1,4 @@
-function [ filtered_data ] = IIRFilter(y,Fs,gains)
+function [ filtered_data,data1,data2,data3,data4,data5,data6,data7,data8,data9] = IIRFilter(y,Fs,gains)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 filter1 = lowpass(Fs,1);
