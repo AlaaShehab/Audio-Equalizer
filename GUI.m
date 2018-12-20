@@ -238,9 +238,16 @@ function plotSignal(value)
 global y;
 global fs;
 global compositeY;
-global bandY;
 global rate;
-
+global band1;
+global band2;
+global band3;
+global band4;
+global band5;
+global band6;
+global band7;
+global band8;
+global band9;
 
 switch value
     case 2
@@ -266,83 +273,83 @@ switch value
         figure;
         plot(f,abs(FFT_audio_in));
     case 6
-        Y = bandY(1);
-        t = linspace(0, length(Y)/rate, length(Y));
+        Y = band1(:,1);
+        t = linspace(0, length(Y)/fs, length(Y));
         figure;
         plot(t,Y);
-        f = -rate/2:rate/(length(Y)-1):rate/2;
+        f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
         plot(f,abs(FFT_audio_in));
     case 7
-        Y = bandY(2);
-        t = linspace(0, length(Y)/rate, length(Y));
+        Y = band2(:,1);
+        t = linspace(0, length(Y)/fs, length(Y));
         figure;
         plot(t,Y);
-        f = -rate/2:rate/(length(Y)-1):rate/2;
+        f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
         plot(f,abs(FFT_audio_in));
     case 8
-        Y = bandY(3);
-        t = linspace(0, length(Y)/rate, length(Y));
+        Y = band3(:,1);
+        t = linspace(0, length(Y)/fs, length(Y));
         figure;
         plot(t,Y);
-        f = -rate/2:rate/(length(Y)-1):rate/2;
+        f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
         plot(f,abs(FFT_audio_in));
     case 9
-        Y = bandY(4);
-        t = linspace(0, length(Y)/rate, length(Y));
+        Y = band4(:,1);
+        t = linspace(0, length(Y)/fs, length(Y));
         figure;
         plot(t,Y);
-        f = -rate/2:rate/(length(Y)-1):rate/2;
+        f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
         plot(f,abs(FFT_audio_in));
     case 10
-        Y = bandY(5);
-        t = linspace(0, length(Y)/rate, length(Y));
+        Y = band5(:,1);
+        t = linspace(0, length(Y)/fs, length(Y));
         figure;
         plot(t,Y);
-        f = -rate/2:rate/(length(Y)-1):rate/2;
+        f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
         plot(f,abs(FFT_audio_in));
     case 11
-        Y = bandY(6);
-        t = linspace(0, length(Y)/rate, length(Y));
+        Y = band6(:,1);
+        t = linspace(0, length(Y)/fs, length(Y));
         figure;
         plot(t,Y);
-        f = -rate/2:rate/(length(Y)-1):rate/2;
+        f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
         plot(f,abs(FFT_audio_in));
     case 12
-        Y = bandY(7);
-        t = linspace(0, length(Y)/rate, length(Y));
+        Y = band7(:,1);
+        t = linspace(0, length(Y)/fs, length(Y));
         figure;
         plot(t,Y);
-        f = -rate/2:rate/(length(Y)-1):rate/2;
+        f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
         plot(f,abs(FFT_audio_in));
     case 13
-        Y = bandY(8);
-        t = linspace(0, length(Y)/rate, length(Y));
+        Y = band8(:,1);
+        t = linspace(0, length(Y)/fs, length(Y));
         figure;
         plot(t,Y);
-        f = -rate/2:rate/(length(Y)-1):rate/2;
+        f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
         plot(f,abs(FFT_audio_in));
     case 14
-        Y = bandY(9);
-        t = linspace(0, length(Y)/rate, length(Y));
+        Y = band9(:,1);
+        t = linspace(0, length(Y)/fs, length(Y));
         figure;
         plot(t,Y);
-        f = -rate/2:rate/(length(Y)-1):rate/2;
+        f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
         plot(f,abs(FFT_audio_in));
@@ -350,6 +357,18 @@ end
 % --- Executes on selection change in popupmenuFilter.
 function popupmenuFilter_Callback(hObject, eventdata, handles)
 global filterType;
+global y;
+global compositeY;
+global fs;
+global band1;
+global band2;
+global band3;
+global band4;
+global band5;
+global band6;
+global band7;
+global band8;
+global band9;
 value = get(handles.popupmenuFilter, 'Value');
 if value == 2
     filterType = "FIR";
@@ -407,7 +426,7 @@ fileName = uigetfile('*.wav','Select the Audio-file');
 function volumeSlider_Callback(hObject, eventdata, handles)
 global volume;
 volume = get(handles.volumeSlider, 'Value');
-volume = 10^(volume/20.0);
+volume = 10^(volume/20.0) * 2;
 
 function volumeSlider_CreateFcn(hObject, eventdata, handles)
 
