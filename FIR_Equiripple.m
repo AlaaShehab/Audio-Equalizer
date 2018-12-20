@@ -1,0 +1,21 @@
+function [ filtered_data,data1,data2,data3,data4,data5,data6,data7,data8,data9] = FIR_Equiripple(y,Fs, gains)
+
+filter1 = low_band_Equiripple(Fs, 1);
+filter2 = band_pass_Equiripple(170,310,Fs,1);
+filter3 = band_pass_Equiripple(310,600,Fs,1);
+filter4 = band_pass_Equiripple(600,1000,Fs,1);
+filter5 = band_pass_Equiripple(1000,3000,Fs,1);
+filter6 = band_pass_Equiripple(3000,6000,Fs,1);
+filter7 = band_pass_Equiripple(6000,12000,Fs,1);
+filter8 = band_pass_Equiripple(12000,14000,Fs,1);
+filter9 = band_pass_Equiripple(14000,16000,Fs,1);
+data1 = filter(filter1,y);
+data2 = filter(filter2,y);
+data3 = filter(filter3,y); 
+data4 = filter(filter4,y);
+data5 = filter(filter5,y);
+data6 = filter(filter6,y);
+data7 = filter(filter7,y);
+data8 = filter(filter8,y);
+data9 = filter(filter9,y);
+filtered_data = data1+data2+data3+data4+data5+data6+data7+data8+data9;

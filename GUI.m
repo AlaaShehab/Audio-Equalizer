@@ -372,9 +372,14 @@ global band8;
 global band9;
 value = get(handles.popupmenuFilter, 'Value');
 if value == 2
-    filterType = "FIR";
+    filterType = "FIR1";
+    [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =FIR_Window(y,fs,1);
 end
-if value==3
+if value == 3
+    filterType = "FIR2";
+    [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =FIR_Equiripple(y,fs,1);
+end
+if value==4
     filterType = "IIR";
 
     [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =IIRFilter(y,fs,1);
@@ -388,7 +393,7 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
     set(hObject,'BackgroundColor','white');
 end
 
-set(hObject, 'String', {"Filter Type", "FIR", "IIR"});
+set(hObject, 'String', {"Filter Type", "FIR1", "FIR2", "IIR"});
 
 % --- Executes on selection change in popupmenuRate.
 function popupmenuRate_Callback(hObject, eventdata, handles)
@@ -434,3 +439,4 @@ function volumeSlider_CreateFcn(hObject, eventdata, handles)
 if isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor',[.9 .9 .9]);
 end
+
