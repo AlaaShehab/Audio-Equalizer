@@ -276,16 +276,17 @@ switch value
         Y = band1(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,Y);
+        plot(t,band1);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
         plot(f,abs(FFT_audio_in));
+
     case 7
         Y = band2(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,Y);
+        plot(t,band2);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -294,7 +295,7 @@ switch value
         Y = band3(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,Y);
+        plot(t,band3);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -303,7 +304,7 @@ switch value
         Y = band4(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,Y);
+        plot(t,band4);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -312,7 +313,7 @@ switch value
         Y = band5(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,Y);
+        plot(t,band5);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -321,7 +322,7 @@ switch value
         Y = band6(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,Y);
+        plot(t,band6);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -330,7 +331,7 @@ switch value
         Y = band7(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,Y);
+        plot(t,band7);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -339,7 +340,7 @@ switch value
         Y = band8(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,Y);
+        plot(t,band8);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -348,7 +349,7 @@ switch value
         Y = band9(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,Y);
+        plot(t,band9);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
