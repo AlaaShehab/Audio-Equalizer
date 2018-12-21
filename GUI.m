@@ -202,7 +202,11 @@ global y;
 global fs;
 global compositeY;
 global rate;
+global volume;
 value = get(handles.popupmenuPlay, 'Value');
+y = y .* volume;
+compositeY = compositeY .* volume;
+
 if value == 2
     sound(y, fs);
 end
@@ -276,7 +280,7 @@ switch value
         Y = band1(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,band1);
+        plot(t,Y);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -286,7 +290,7 @@ switch value
         Y = band2(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,band2);
+        plot(t,Y);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -295,7 +299,7 @@ switch value
         Y = band3(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,band3);
+        plot(t,Y);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -304,7 +308,7 @@ switch value
         Y = band4(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,band4);
+        plot(t,Y);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -313,7 +317,7 @@ switch value
         Y = band5(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,band5);
+        plot(t,Y);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -322,7 +326,7 @@ switch value
         Y = band6(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,band6);
+        plot(t,Y);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -331,7 +335,7 @@ switch value
         Y = band7(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,band7);
+        plot(t,Y);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -340,7 +344,7 @@ switch value
         Y = band8(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,band8);
+        plot(t,Y);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -349,7 +353,7 @@ switch value
         Y = band9(:,1);
         t = linspace(0, length(Y)/fs, length(Y));
         figure;
-        plot(t,band9);
+        plot(t,Y);
         f = -fs/2:fs/(length(Y)-1):fs/2;
         FFT_audio_in=fftshift(fft(Y))/length(fft(Y));
         figure;
@@ -370,6 +374,7 @@ global band6;
 global band7;
 global band8;
 global band9;
+global rate;
 value = get(handles.popupmenuFilter, 'Value');
 if value == 2
     filterType = "FIR1";
@@ -384,6 +389,7 @@ if value==4
 
     [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =IIRFilter(y,fs,1);
 end
+audiowrite('output.wav',compositeY, rate);
 
 %TODO call filter function a switch case to filter input
 
