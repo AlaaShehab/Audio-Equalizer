@@ -1,6 +1,6 @@
 function [ filtered_data,data1,data2,data3,data4,data5,data6,data7,data8,data9] = FIR_Window(y,Fs, gains)
 
-filter1 = low_band_window(Fs,1);
+filter1 = low_band_window(Fs);
 filter2 = band_pass_window(170,310,Fs);
 filter3 = band_pass_window(310,600,Fs);
 filter4 = band_pass_window(600,1000,Fs);
@@ -18,4 +18,4 @@ data6 = filter(filter6,y);
 data7 = filter(filter7,y);
 data8 = filter(filter8,y);
 data9 = filter(filter9,y);
-data1*gains(1)+data2*gains(2)+data3*gains(3)+data4*gains(4)+data5*gains(5)+data6*gains(6)+data7*gains(7)+data8*gains(8)+data9*gains(9);
+filtered_data = data1*gains(1)+data2*gains(2)+data3*gains(3)+data4*gains(4)+data5*gains(5)+data6*gains(6)+data7*gains(7)+data8*gains(8)+data9*gains(9);

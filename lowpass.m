@@ -1,4 +1,4 @@
-function Hd = lowpass(Fs,gain)
+function Hd = lowpass(Fs)
 %LOWPASS Returns a discrete-time filter object.
 
 % MATLAB Code
@@ -10,7 +10,7 @@ function Hd = lowpass(Fs,gain)
 % All frequency values are in Hz.
 %Fs = 48000;  % Sampling Frequency
 
-N  = 12;   % Order
+N  = 20;   % Order
 Fc = 170;  % Cutoff Frequency
 
 % Construct an FDESIGN object and call its BUTTER method.

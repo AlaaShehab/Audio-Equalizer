@@ -71,7 +71,8 @@ function slider1_Callback(hObject, eventdata, handles)
 %TODO convert db to gain (msh 3rfa ezay)
 global bandGain;
 bandGain(1) = get(handles.slider1, 'Value');
-bandGain(1) = 10^(bandGain(1)/20.0);
+%bandGain(1) = 10^(bandGain(1)/20.0);
+bandGain(1) = bandGain(1)* 50;
 
 
 function slider1_CreateFcn(hObject, eventdata, handles)
@@ -84,7 +85,8 @@ end
 function slider2_Callback(hObject, eventdata, handles)
 global bandGain;
 bandGain(2) = get(handles.slider2, 'Value');
-bandGain(2) = 10^(bandGain(2)/20.0);
+%bandGain(2) = 10^(bandGain(2)/20.0);
+bandGain(2) = bandGain(2)* 50;
 
 function slider2_CreateFcn(hObject, eventdata, handles)
 
@@ -97,7 +99,8 @@ end
 function slider3_Callback(hObject, eventdata, handles)
 global bandGain;
 bandGain(3) = get(handles.slider3, 'Value');
-bandGain(3) = 10^(bandGain(3)/20.0);
+%bandGain(3) = 10^(bandGain(3)/20.0);
+bandGain(3) = bandGain(3)* 50;
 
 
 function slider3_CreateFcn(hObject, eventdata, handles)
@@ -112,7 +115,8 @@ function slider4_Callback(hObject, eventdata, handles)
 
 global bandGain;
 bandGain(4) = get(handles.slider4, 'Value');
-bandGain(4) = 10^(bandGain(4)/20.0);
+%bandGain(4) = 10^(bandGain(4)/20.0);
+bandGain(4) = bandGain(4)* 50;
 
 
 function slider4_CreateFcn(hObject, eventdata, handles)
@@ -126,7 +130,8 @@ end
 function slider5_Callback(hObject, eventdata, handles)
 global bandGain;
 bandGain(5) = get(handles.slider5, 'Value');
-bandGain(5) = 10^(bandGain(5)/20.0);
+%bandGain(5) = 10^(bandGain(5)/20.0);
+bandGain(5) = bandGain(5)* 50;
 
 
 function slider5_CreateFcn(hObject, eventdata, handles)
@@ -142,6 +147,7 @@ function slider6_Callback(hObject, eventdata, handles)
 global bandGain;
 bandGain(6) = get(handles.slider6, 'Value');
 bandGain(6) = 10^(bandGain(6)/20.0);
+bandGain(6) = bandGain(6)* 50;
 
 
 function slider6_CreateFcn(hObject, eventdata, handles)
@@ -154,7 +160,8 @@ end
 function slider7_Callback(hObject, eventdata, handles)
 global bandGain;
 bandGain(7) = get(handles.slider7, 'Value');
-bandGain(7) = 10^(bandGain(7)/20.0);
+%bandGain(7) = 10^(bandGain(7)/20.0);
+bandGain(7) = bandGain(7)* 50;
 
 
 function slider7_CreateFcn(hObject, eventdata, handles)
@@ -170,7 +177,8 @@ function slider8_Callback(hObject, eventdata, handles)
 
 global bandGain;
 bandGain(8) = get(handles.slider8, 'Value');
-bandGain(8) = 10^(bandGain(8)/20.0);
+%bandGain(8) = 10^(bandGain(8)/20.0);
+bandGain(8) = bandGain(8)* 50;
 
 
 function slider8_CreateFcn(hObject, eventdata, handles)
@@ -187,7 +195,8 @@ function slider9_Callback(hObject, eventdata, handles)
 
 global bandGain;
 bandGain(9) = get(handles.slider9, 'Value');
-bandGain(9) = 10^(bandGain(9)/20.0);
+%bandGain(9) = 10^(bandGain(9)/20.0)
+bandGain(9) = bandGain(9)* 50;
 
 function slider9_CreateFcn(hObject, eventdata, handles)
 
@@ -375,6 +384,7 @@ global band7;
 global band8;
 global band9;
 global rate;
+global bandGain;
 value = get(handles.popupmenuFilter, 'Value');
 if value == 2
     filterType = "FIR1";
@@ -386,8 +396,7 @@ if value == 3
 end
 if value==4
     filterType = "IIR";
-
-    [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =IIRFilter(y,fs,1);
+    [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =IIRFilter(y,fs,bandGain);
 end
 audiowrite('output.wav',compositeY, rate);
 

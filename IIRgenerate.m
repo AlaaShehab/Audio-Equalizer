@@ -1,4 +1,4 @@
-function Hd = IIRgenerate(Fc1,Fc2,Fs,gain)
+function Hd = IIRgenerate(Fc1,Fc2,Fs)
 %IIRGENERATE Returns a discrete-time filter object.
 
 % MATLAB Code
