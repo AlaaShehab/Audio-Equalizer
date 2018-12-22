@@ -429,10 +429,10 @@ function pushbuttonWave_Callback(hObject, eventdata, handles)
 
 global fs;
 global y;
-
+global rate;
 fileName = uigetfile('*.wav','Select the Audio-file');
 [y, fs] = audioread(fileName);
-
+rate = fs;
 
 % --- Executes on slider movement.
 function volumeSlider_Callback(hObject, eventdata, handles)
