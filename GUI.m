@@ -378,11 +378,11 @@ global rate;
 value = get(handles.popupmenuFilter, 'Value');
 if value == 2
     filterType = "FIR1";
-    [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =FIR_Window(y,fs,1);
+    [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =FIR_Window(y,fs,bandGain);
 end
 if value == 3
     filterType = "FIR2";
-    [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =FIR_Equiripple(y,fs,1);
+    [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =FIR_Equiripple(y,fs,bandGain);
 end
 if value==4
     filterType = "IIR";
@@ -438,7 +438,7 @@ rate = fs;
 function volumeSlider_Callback(hObject, eventdata, handles)
 global volume;
 volume = get(handles.volumeSlider, 'Value');
-volume = 10^(volume/20.0) * 2;
+volume = 10^(volume/20.0);
 
 function volumeSlider_CreateFcn(hObject, eventdata, handles)
 

@@ -1,4 +1,4 @@
-function Hd = low_band_Equiripple (Sam_Freq, gain)
+function Hd = low_band_Equiripple (Sam_Freq)
 %FIRST_BAND Returns a discrete-time filter object.
 
 % MATLAB Code

@@ -1,4 +1,4 @@
-function Hd = low_band_window (Sam_Freq, gain)
+function Hd = low_band_window (Sam_Freq)
 %LOW_BAND_WINDOW Returns a discrete-time filter object.
 
 % MATLAB Code

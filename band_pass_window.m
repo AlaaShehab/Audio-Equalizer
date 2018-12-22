@@ -1,4 +1,4 @@
-function Hd = band_pass_window (F_C1, F_C2, Sam_Freq, gain)
+function Hd = band_pass_window (F_C1, F_C2, Sam_Freq)
 %BAND_PASS_WINDOW Returns a discrete-time filter object.
 
 % MATLAB Code

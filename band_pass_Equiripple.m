@@ -1,4 +1,4 @@
-function Hd = band_pass_Equiripple (F_Pass1, F_Pass2, Sam_Freq, gain)
+function Hd = band_pass_Equiripple (F_Pass1, F_Pass2, Sam_Freq)
 %BAND_PASS Returns a discrete-time filter object.
 
 % MATLAB Code
