@@ -126,7 +126,8 @@ end
 function slider5_Callback(hObject, eventdata, handles)
 global bandGain;
 bandGain(5) = get(handles.slider5, 'Value');
-bandGain(5) = (10^(bandGain(5)/20.0)) * 20;
+%bandGain(5) = 10^(bandGain(5)/20.0);
+bandGain(5) = bandGain(5)* 50;
 
 
 function slider5_CreateFcn(hObject, eventdata, handles)
@@ -141,7 +142,8 @@ function slider6_Callback(hObject, eventdata, handles)
 
 global bandGain;
 bandGain(6) = get(handles.slider6, 'Value');
-bandGain(6) = (10^(bandGain(6)/20.0)) * 20;
+bandGain(6) = 10^(bandGain(6)/20.0);
+bandGain(6) = bandGain(6)* 50;
 
 
 function slider6_CreateFcn(hObject, eventdata, handles)
@@ -154,7 +156,8 @@ end
 function slider7_Callback(hObject, eventdata, handles)
 global bandGain;
 bandGain(7) = get(handles.slider7, 'Value');
-bandGain(7) = (10^(bandGain(7)/20.0)) * 20;
+%bandGain(7) = 10^(bandGain(7)/20.0);
+bandGain(7) = bandGain(7)* 50;
 
 
 function slider7_CreateFcn(hObject, eventdata, handles)
@@ -170,7 +173,8 @@ function slider8_Callback(hObject, eventdata, handles)
 
 global bandGain;
 bandGain(8) = get(handles.slider8, 'Value');
-bandGain(8) = (10^(bandGain(8)/20.0)) * 20;
+%bandGain(8) = 10^(bandGain(8)/20.0);
+bandGain(8) = bandGain(8)* 50;
 
 
 function slider8_CreateFcn(hObject, eventdata, handles)
@@ -187,7 +191,8 @@ function slider9_Callback(hObject, eventdata, handles)
 
 global bandGain;
 bandGain(9) = get(handles.slider9, 'Value');
-bandGain(9) = (10^(bandGain(9)/20.0)) * 20;
+%bandGain(9) = 10^(bandGain(9)/20.0)
+bandGain(9) = bandGain(9)* 50;
 
 function slider9_CreateFcn(hObject, eventdata, handles)
 
@@ -207,11 +212,11 @@ value = get(handles.popupmenuPlay, 'Value');
 disp(volume);
 if value == 2
     audio = y .* volume;
-    sound(audio, fs);
+    sound(y, fs);
 end
 if value==3
     audio = compositeY .* volume;
-    sound(audio, rate);
+    sound(compositeY, rate);
 end
 
 % --- Executes during object creation, after setting all properties.
@@ -389,7 +394,7 @@ if value==4
     filterType = "IIR";
     [ compositeY band1 band2 band3 band4 band5 band6 band7 band8 band9] =IIRFilter(y,fs,bandGain);
 end
-audiowrite('FIR2_COMPOSITE.wav',compositeY, rate);
+audiowrite('IIR_COMPOSITE.wav',compositeY, rate);
 
 %TODO call filter function a switch case to filter input
 
